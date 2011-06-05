@@ -82,6 +82,7 @@ __END__
 =head1 NAME
 
 Internals::CountObjects - Report all allocated perl objects
+
 =head1 SYNOPSIS
 
   use Internals::CountObjects;

@@ -1,7 +1,7 @@
 NAME
-    Internals::CountObjects - Report all allocated perl objects =head1
-    SYNOPSIS
+    Internals::CountObjects - Report all allocated perl objects
 
+SYNOPSIS
       use Internals::CountObjects;
       print dump_objects();
 
