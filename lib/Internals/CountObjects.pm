@@ -4,7 +4,7 @@ package Internals::CountObjects;
 use strict;
 use vars qw( $VERSION @ISA @EXPORT_OK %EXPORT_TAGS );
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 require XSLoader;
 XSLoader::load( __PACKAGE__, $VERSION );
