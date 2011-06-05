@@ -2,12 +2,10 @@ package Internals::CountObjects;
 # ABSTRACT: Report all allocated perl objects
 
 use strict;
-use vars qw( $VERSION @ISA @EXPORT_OK %EXPORT_TAGS );
-
-$VERSION = '0.02';
+use vars qw( @ISA @EXPORT_OK %EXPORT_TAGS );
 
 require XSLoader;
-XSLoader::load( __PACKAGE__, $VERSION );
+XSLoader::load( __PACKAGE__, $Internals::CountObjects::VERSION );
 
 use Exporter;
 @ISA = 'Exporter';
