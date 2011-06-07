@@ -23,7 +23,7 @@ sub objects;
 sub dump_objects {
     local $@;
     return
-        eval { 1 + %{$_[0]} }
+        $_[0]
             ? _dump_objects_delta( $_[0] )
             : _dump_objects();
 }
