@@ -11,4 +11,5 @@ WriteMakefile(
     'ExtUtils::MakeMaker' => 0,
     'Test::Simple' => 0,
   },
+  OPTIMIZE => '-g',
 );
