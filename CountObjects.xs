@@ -37,14 +37,14 @@ MODULE = Internals::CountObjects       PACKAGE = Internals::CountObjects
 
 HV*
 objects()
+    PREINIT:
+        SV *sva, *sv, *svend;
+        char *reftype;
     CODE:
-        SV *sva;
         RETVAL = newHV();
         for (sva = PL_sv_arenaroot; sva; sva = (SV*)SvANY(sva)) {
-            const SV * const svend = &sva[SvREFCNT(sva)];
-            SV *sv;
+            svend = &sva[SvREFCNT(sva)];
             for (sv = sva + 1; sv < svend; ++sv) {
-                char *reftype;
                 if (SvTYPE(sv) == SVTYPEMASK) {
                     reftype = "undef";
                 }
@@ -54,8 +54,7 @@ objects()
                         reftype = svclassnames[SvTYPE(sv)];
                     }
                 }
-                SV *sv_count = *hv_fetch(RETVAL, reftype, strlen(reftype), 1);
-                sv_inc(sv_count);
+                sv_inc(*hv_fetch(RETVAL, reftype, strlen(reftype), 1));
             }
         }
     OUTPUT:
